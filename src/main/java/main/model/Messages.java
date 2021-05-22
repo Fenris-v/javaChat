@@ -9,6 +9,7 @@ public class Messages {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date sendTime;
+    @Column(columnDefinition="TEXT")
     private String text;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
