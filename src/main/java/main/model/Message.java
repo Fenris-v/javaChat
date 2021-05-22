@@ -4,17 +4,18 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Messages {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date sendTime;
+
     @Column(columnDefinition="TEXT")
     private String text;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     public int getId() {
         return id;
@@ -40,11 +41,11 @@ public class Messages {
         this.text = text;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }
