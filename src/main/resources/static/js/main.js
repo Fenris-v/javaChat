@@ -8,7 +8,9 @@ $(function(){
     };
 
     let loadUsers = function() {
+    console.log(123);
         $.get('/api/users', function(response){
+    console.log(response);
             let users = response.users;
             let usersList = $('.users-list');
             for(let i in users) {

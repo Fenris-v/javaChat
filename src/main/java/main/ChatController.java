@@ -99,7 +99,7 @@ public class ChatController {
     }
 
     @GetMapping(path = "/api/users")
-    public List<UserResponse> getUsers() {
+    public HashMap<String, List> getUsers() {
         ArrayList<UserResponse> userList = new ArrayList<>();
         Iterable<User> users = userRepository.findAll();
 
@@ -109,7 +109,9 @@ public class ChatController {
             userList.add(userItem);
         }
 
-        return userList;
+        HashMap<String, List> response = new HashMap<>();
+        response.put("users", userList);
+        return response;
     }
 
 
